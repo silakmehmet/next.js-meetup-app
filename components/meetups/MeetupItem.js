@@ -12,9 +12,12 @@ function MeetupItem(props) {
         <div className={classes.content}>
           <h3>{props.title}</h3>
           <address>{props.address}</address>
+          <span>{props.date}</span>
         </div>
         <div className={classes.actions}>
-          <Link href={'/' + props.id}>Show Details</Link>
+          <Link href={'/' + props.id} onClick={props.meetupDetailHandler}>
+            Show Details
+          </Link>
         </div>
       </Card>
     </li>

@@ -1,24 +1,31 @@
-import MeetupList from '@/components/meetups/MeetupList';
+import { getMeetups } from '@/components/helper/get-meetups';
+import MeetupList from '../components/meetups/MeetupList';
 
-const DUMMY_MEETUPS = [
-  {
-    id: 'm1',
-    title: 'The First Meetup',
-    image: 'https://picsum.photos/200/300',
-    address: 'Atakule no:65',
-    description: 'This is the first meetup',
-  },
-  {
-    id: 'm2',
-    title: 'The Second Meetup',
-    image: 'https://picsum.photos/200/300',
-    address: 'Atakule no:75',
-    description: 'This is the second meetup',
-  },
-];
+function HomePage(props) {
 
-function HomePage() {
-  return <MeetupList meetups={DUMMY_MEETUPS} />;
+
+  return <MeetupList meetups={props.meetups} />;
+}
+
+export async function getStaticProps() {
+  const loadedMeetups = await getMeetups();
+  const meetups = [];
+  for (const key in loadedMeetups) {
+    meetups.push({
+      id: key,
+      title: loadedMeetups[key].title,
+      date: loadedMeetups[key].date,
+      description: loadedMeetups[key].description,
+      address: loadedMeetups[key].address,
+      image: loadedMeetups[key].image,
+    });
+  }
+  return {
+    props: {
+      meetups,
+    },
+    revalidate: 1,
+  };
 }
 
 export default HomePage;
