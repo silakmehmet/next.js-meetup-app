@@ -2,7 +2,7 @@ import classes from './MainNavigation.module.css';
 import Link from 'next/link';
 
 function MainNavigation(props) {
-  const loginBtn = props.isLoggedIn ? 'Wellcome' : 'Login';
+  const loginBtn = props.isLoggedIn ? 'Welcome' : 'Login';
   return (
     <header className={classes.header}>
       <Link href="/" className={classes.logo}>

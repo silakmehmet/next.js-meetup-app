@@ -1,18 +1,26 @@
+import Head from 'next/head';
 import {
   getMeetups,
   getSelectedMeetup,
 } from '../../components/helper/get-meetups';
 import MeetupDetail from '../../components/meetups/MeetupDetail';
+import { Fragment } from 'react';
 
 function MeetupDetails(props) {
   return (
-    <MeetupDetail
-      image={props.meetupData.image}
-      title={props.meetupData.title}
-      address={props.meetupData.address}
-      date={props.meetupData.date}
-      description={props.meetupData.description}
-    />
+    <Fragment>
+      <Head>
+        <title>{props.meetupData.title}</title>
+        <meta name="description" content={props.meetupData.description} />
+      </Head>
+      <MeetupDetail
+        image={props.meetupData.image}
+        title={props.meetupData.title}
+        address={props.meetupData.address}
+        date={props.meetupData.date}
+        description={props.meetupData.description}
+      />
+    </Fragment>
   );
 }
 
