@@ -2,7 +2,7 @@ import NewMeetupForm from '../../components/meetups/NewMeetupForm';
 import { setMeetups } from '@/components/helper/get-meetups';
 import { useRouter } from 'next/router';
 
-function NewMeetupPage() {
+function NewMeetupPage(props) {
   const router = useRouter();
 
   const addMeetupHandler = async (enteredMeetupData) => {
@@ -16,7 +16,12 @@ function NewMeetupPage() {
     router.push('/');
   };
 
-  return <NewMeetupForm onAddMeetup={addMeetupHandler} />;
+  return (
+    <NewMeetupForm
+      isLoggedIn={props.isLoggedIn}
+      onAddMeetup={addMeetupHandler}
+    />
+  );
 }
 
 export default NewMeetupPage;

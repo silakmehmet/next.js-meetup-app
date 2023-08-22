@@ -1,7 +1,8 @@
 import classes from './MainNavigation.module.css';
 import Link from 'next/link';
 
-function MainNavigation() {
+function MainNavigation(props) {
+  const loginBtn = props.isLoggedIn ? 'Wellcome' : 'Login';
   return (
     <header className={classes.header}>
       <Link href="/" className={classes.logo}>
@@ -16,7 +17,7 @@ function MainNavigation() {
             <Link href="/new-meetup">Add New Meetup</Link>
           </li>
           <li>
-            <Link href="/login">Login</Link>
+            <Link href="/login">{loginBtn}</Link>
           </li>
         </ul>
       </nav>

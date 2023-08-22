@@ -43,3 +43,10 @@
   background-color: #a50e48;
   border-color: #a50e48;
 }
+
+.alert {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+  font-size: x-large;
+}

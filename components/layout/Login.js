@@ -6,6 +6,7 @@ const passwordIsValid = (value) => value.trim() !== '';
 const emailIsValid = (value) => value.trim() !== '' && value.includes('@');
 
 function LoginForm(props) {
+
   const [formValidity, setFormValidity] = useState({
     email: true,
     password: true,
@@ -43,6 +44,7 @@ function LoginForm(props) {
   const passwordValidityClasses = `${classes.control} ${
     formValidity.password ? '' : classes.invalid
   }`;
+
   return (
     <Card>
       <form className={classes.form} onSubmit={submitHandler}>
