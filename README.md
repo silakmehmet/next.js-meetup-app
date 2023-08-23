@@ -8,9 +8,9 @@ The Next.js-Meetups Project is a web application that showcases the power of Nex
 
 ## Features
 
-**Dynamic Routing:** Utilize Next.js's routing capabilities to create dynamic pages with clean URLs.
-**Firebase Integration:** Seamlessly connect to Firebase to handle data storage, retrieval, and real-time updates.
-**Anonymous Login:** Provide users with the option to log in anonymously for immediate access to personalized content.
+**Dynamic Routing:** Utilize Next.js's routing capabilities to create dynamic pages with clean URLs. \
+**Firebase Integration:** Seamlessly connect to Firebase to handle data storage, retrieval, and real-time updates. \
+**Anonymous Login:** Provide users with the option to log in anonymously for immediate access to personalized content. \
 
 ## Demo
 
