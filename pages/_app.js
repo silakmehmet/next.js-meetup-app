@@ -1,20 +1,14 @@
 import Layout from '@/components/layout/Layout';
+import LoginProvider from '@/store/LoginProvider';
 import '../styles/globals.css';
-import { useState } from 'react';
 
 function Home({ Component, pageProps }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const checkLogin = () => {
-    setIsLoggedIn(true);
-  };
   return (
-    <Layout isLoggedIn={isLoggedIn}>
-      <Component
-        {...pageProps}
-        isLoggedIn={isLoggedIn}
-        checkLogin={checkLogin}
-      />
-    </Layout>
+    <LoginProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </LoginProvider>
   );
 }
 

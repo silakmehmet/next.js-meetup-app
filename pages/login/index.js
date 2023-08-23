@@ -1,18 +1,20 @@
 import LoginForm from '@/components/layout/Login';
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { Fragment } from 'react';
+import Head from 'next/head';
 
-function LoginPage(props) {
-  const router = useRouter();
-  const [login, setLogin] = useState(false);
-
-  function loginHandler() {
-    setLogin(true);
-    props.checkLogin();
-    router.push('/');
-  }
-
-  return <LoginForm onLogin={loginHandler} />;
+function LoginPage() {
+  return (
+    <Fragment>
+      <Head>
+        <title>Next.js Meetups | Login</title>
+        <meta
+          name="description"
+          content="Login and add your own Next.js meetups!"
+        />
+      </Head>
+      <LoginForm />
+    </Fragment>
+  );
 }
 
 export default LoginPage;

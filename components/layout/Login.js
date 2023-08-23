@@ -1,11 +1,15 @@
 import Card from '../ui/Card';
 import classes from './Login.module.css';
-import { useRef, useState } from 'react';
+import LoginContext from '@/store/login-context';
+import { useRef, useState, useContext } from 'react';
+import { useRouter } from 'next/router';
 
 const passwordIsValid = (value) => value.trim() !== '';
 const emailIsValid = (value) => value.trim() !== '' && value.includes('@');
 
-function LoginForm(props) {
+function LoginForm() {
+  const router = useRouter();
+  const loginCtx = useContext(LoginContext);
 
   const [formValidity, setFormValidity] = useState({
     email: true,
@@ -34,7 +38,8 @@ function LoginForm(props) {
     if (!formIsValid) {
       return;
     }
-    props.onLogin();
+    loginCtx.loggedIn();
+    router.push('/');
   }
 
   const emailValidityClasses = `${classes.control} ${

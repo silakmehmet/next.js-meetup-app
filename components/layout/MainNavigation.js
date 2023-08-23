@@ -1,8 +1,15 @@
 import classes from './MainNavigation.module.css';
 import Link from 'next/link';
+import LoginContext from '@/store/login-context';
+import { useContext } from 'react';
 
-function MainNavigation(props) {
-  const loginBtn = props.isLoggedIn ? 'Welcome' : 'Login';
+function MainNavigation() {
+  const loginCtx = useContext(LoginContext);
+  const loginStatus = loginCtx.isLoggedIn ? (
+    <Link href="/logout">Welcome</Link>
+  ) : (
+    <Link href="/login">Login</Link>
+  );
   return (
     <header className={classes.header}>
       <Link href="/" className={classes.logo}>
@@ -16,9 +23,7 @@ function MainNavigation(props) {
           <li>
             <Link href="/new-meetup">Add New Meetup</Link>
           </li>
-          <li>
-            <Link href="/login">{loginBtn}</Link>
-          </li>
+          <li>{loginStatus}</li>
         </ul>
       </nav>
     </header>
